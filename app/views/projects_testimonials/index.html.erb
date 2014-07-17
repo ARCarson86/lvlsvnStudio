@@ -1,0 +1,23 @@
+<h1>Listing projects_testimonials</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @projects_testimonials.each do |projects_testimonial| %>
+      <tr>
+        <td><%= link_to 'Show', projects_testimonial %></td>
+        <td><%= link_to 'Edit', edit_projects_testimonial_path(projects_testimonial) %></td>
+        <td><%= link_to 'Destroy', projects_testimonial, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Projects testimonial', new_projects_testimonial_path %>

@@ -1,0 +1,2 @@
+module ProjectsTestimonialsHelper
+end

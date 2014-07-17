@@ -1,0 +1,23 @@
+<h1>Listing projects_skills</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @projects_skills.each do |projects_skill| %>
+      <tr>
+        <td><%= link_to 'Show', projects_skill %></td>
+        <td><%= link_to 'Edit', edit_projects_skill_path(projects_skill) %></td>
+        <td><%= link_to 'Destroy', projects_skill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Projects skill', new_projects_skill_path %>
