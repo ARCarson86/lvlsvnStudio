@@ -11,6 +11,16 @@
     </div>
   <% end %>
 
+  <div class ="field">
+    <%= f.label :clinet_name %>
+    <%= f.text_field :client_name %>
+  </div>
+
+  <div class ="field">
+    <%= f.label :testimonial %>
+    <%= f.text_area :testimonial, rows: 7 %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

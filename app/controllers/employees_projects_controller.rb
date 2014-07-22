@@ -69,6 +69,6 @@ class EmployeesProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def employees_project_params
-      params[:employees_project]
+      params.require(:employees_project).permit(:id, :employee_id, :project_id, :created_at, :updated_at)
     end
 end

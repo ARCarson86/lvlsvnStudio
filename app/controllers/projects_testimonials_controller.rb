@@ -69,6 +69,6 @@ class ProjectsTestimonialsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def projects_testimonial_params
-      params[:projects_testimonial]
+      params.require(:projects_testimonial).permit(:id, :project_id, :testimonial_id, :created_at, :updated_at)
     end
 end

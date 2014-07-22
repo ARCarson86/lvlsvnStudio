@@ -11,6 +11,31 @@
     </div>
   <% end %>
 
+  <div class ="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class ="field">
+    <%= f.label :client_description %>
+    <%= f.text_area :client_description, rows: 6 %>
+  </div>
+
+  <div class ="field">
+    <%= f.label :work_description %>
+    <%= f.text_area :work_description, rows: 8 %>
+  </div>
+
+  <div class ="field">
+    <%= f.label :start_date %>
+    <%= f.datetime_field :start_date %>
+  </div>
+
+  <div class ="field">
+    <%= f.label :end_date %>
+    <%= f.datetime_field :end_date %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
