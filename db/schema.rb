@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20140723155546) do
-=======
-ActiveRecord::Schema.define(version: 20140715130835) do
->>>>>>> parent of 9b58921... added tables
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,7 +76,6 @@ ActiveRecord::Schema.define(version: 20140715130835) do
     t.string   "slug"
   end
 
-<<<<<<< HEAD
   create_table "projects_skills", force: true do |t|
     t.integer  "project_id"
     t.integer  "skill_id"
@@ -101,18 +96,20 @@ ActiveRecord::Schema.define(version: 20140715130835) do
     t.datetime "updated_at"
   end
 
-=======
->>>>>>> parent of 9b58921... added tables
   create_table "skills", force: true do |t|
-    t.string "name"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "testimonials", force: true do |t|
-    t.string "client_name"
-    t.text   "testimonial"
+    t.string   "client_name"
+    t.text     "testimonial"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  create_table "users_tables", force: true do |t|
+  create_table "users", force: true do |t|
     t.string   "username"
     t.datetime "created_at"
     t.datetime "updated_at"
