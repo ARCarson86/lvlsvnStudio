@@ -34,11 +34,6 @@ Rails.application.routes.draw do
   resources :testimonials do
     resources :project_testimonials, except: [:new, :create]
   end
-
-  resources :admin do
-    resources :project_testimonials
-  end
-
   # Example resource route with options:
   #   resources :products do
   #     member do

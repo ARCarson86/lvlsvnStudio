@@ -1,3 +1,1 @@
-<% if current_user  %>
-	<%= link_to "Go to Admin", admin_index_path if current_user.has_role?("Admin") %>
-<% end %>
+<%= render "shared/nav" %>
