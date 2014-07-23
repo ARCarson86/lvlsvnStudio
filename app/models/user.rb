@@ -5,5 +5,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :posts
-  has_one :role
+  belongs_to :role
+
+  def has_role?(role)
+  	self.role.name == role
+  end
 end

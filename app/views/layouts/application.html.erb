@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<%= link_to "Go to Admin", admin_path if current_user &&current_user.has_role?("Admin") %>
 <%= yield %>
 
 </body>

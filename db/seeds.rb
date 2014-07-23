@@ -13,6 +13,12 @@ Role.find_or_create_by(name: "Member")
 User.create!(
 	:username => "lvlsvn",
 	:email => "michael.burkle@lvlsvn.com",
-	:role_id => Role.where(name: "Admin").first,
+	:role_id => Role.where(name: "Admin").first.id,
+  :password => "P@$$w0rd",
+  )
+User.create!(
+	:username => "moderator",
+	:email => "mike.burkle@lvlsvn.com",
+	:role_id => Role.where(name: "Moderator").first.id,
   :password => "P@$$w0rd",
   )
