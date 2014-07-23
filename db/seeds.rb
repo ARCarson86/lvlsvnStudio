@@ -5,3 +5,20 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Role.find_or_create_by(name: "Admin")
+Role.find_or_create_by(name: "Moderator")
+Role.find_or_create_by(name: "Member")
+
+User.create!(
+	:username => "lvlsvn",
+	:email => "michael.burkle@lvlsvn.com",
+	:role_id => Role.where(name: "Admin").first.id,
+  :password => "P@$$w0rd",
+  )
+User.create!(
+	:username => "moderator",
+	:email => "mike.burkle@lvlsvn.com",
+	:role_id => Role.where(name: "Moderator").first.id,
+  :password => "P@$$w0rd",
+  )

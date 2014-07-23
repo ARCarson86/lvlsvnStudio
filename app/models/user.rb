@@ -3,5 +3,11 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  
+
+  has_many :posts
+  belongs_to :role
+
+  def has_role?(role)
+  	self.role.name == role
+  end
 end

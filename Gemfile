@@ -6,6 +6,8 @@ gem 'rails', '4.1.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 gem 'pg'
+gem 'devise'
+gem 'friendly_id'
 
 
 # Use SCSS for stylesheets
@@ -31,9 +33,13 @@ gem 'spring',        group: :development
 
 gem 'paperclip'
 
-gem 'devise'
-
 gem 'cancancan'
+
+group :development do
+  gem "better_errors"
+  gem "binding_of_caller"
+end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
