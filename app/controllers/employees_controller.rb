@@ -1,4 +1,6 @@
 class EmployeesController < ApplicationController
+  extend FriendlyId
+  friendly_id :full_name, use: :slugged
   before_action :set_employee, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -51,7 +53,7 @@ class EmployeesController < ApplicationController
 
   private
     def set_employee
-      @employee = Employee.find(params[:id])
+      @employee = Employee.friendlt.find(params[:id])
     end
 
     def employee_params

@@ -1,4 +1,6 @@
 class ProjectsController < ApplicationController
+  extend FriendlyId
+  friendly_id :name, use: :slugged
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
   # GET /projects
@@ -64,7 +66,7 @@ class ProjectsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_project
-      @project = Project.find(params[:id])
+      @project = Project.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -11,19 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140723133429) do
+ActiveRecord::Schema.define(version: 20140723155546) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "comments", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "commentable_id"
-    t.string   "commentable_type"
-    t.text     "body"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "employees", force: true do |t|
     t.string   "first_name"
@@ -35,6 +26,7 @@ ActiveRecord::Schema.define(version: 20140723133429) do
     t.datetime "hire_date"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "slug"
   end
 
   create_table "employees_projects", force: true do |t|
@@ -51,12 +43,26 @@ ActiveRecord::Schema.define(version: 20140723133429) do
     t.datetime "updated_at"
   end
 
+  create_table "friendly_id_slugs", force: true do |t|
+    t.string   "slug",                      null: false
+    t.integer  "sluggable_id",              null: false
+    t.string   "sluggable_type", limit: 50
+    t.string   "scope"
+    t.datetime "created_at"
+  end
+
+  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
+
   create_table "posts", force: true do |t|
     t.string   "title"
     t.integer  "author_id"
     t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "slug"
   end
 
   create_table "projects", force: true do |t|
@@ -67,6 +73,7 @@ ActiveRecord::Schema.define(version: 20140723133429) do
     t.text     "work_description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "slug"
   end
 
   create_table "projects_skills", force: true do |t|
@@ -117,6 +124,7 @@ ActiveRecord::Schema.define(version: 20140723133429) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.integer  "role_id"
+    t.string   "slug"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
