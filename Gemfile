@@ -22,7 +22,6 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 gem 'spring',        group: :development
 gem 'paperclip'
-gem 'cancancan'
 
 group :development do
   gem "better_errors"
